@@ -1,0 +1,15 @@
+
+#ifndef TEMP_HUM_SENSOR_H_
+#define TEMP_HUM_SENSOR_H_
+
+#include "declare_IO.h"
+#include <avr/io.h>
+
+void adc_init(void);
+uint16 adc_read(uint8 channel);
+/////////////////////////////////////////////////////////
+
+uint8 temp_sensor_read(void);
+uint8 hum_sensor_read(void);
+
+#endif /* TEMP_HUM_SENSOR_H_ */

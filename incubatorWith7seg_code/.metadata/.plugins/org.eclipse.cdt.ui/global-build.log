@@ -1,0 +1,17 @@
+13:18:09 **** Incremental Build of configuration Debug for project incubator ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 incubator.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:   11544 bytes (70.5% Full)
+(.text + .data + .bootloader)
+
+Data:        321 bytes (31.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

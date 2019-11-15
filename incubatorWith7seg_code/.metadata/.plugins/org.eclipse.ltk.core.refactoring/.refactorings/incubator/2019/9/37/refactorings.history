@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;incubator/temp_hum_sensor.h&apos; to &apos;temp_sensor.h&apos;" description="Rename resource &apos;temp_hum_sensor.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="temp_hum_sensor.h" name="temp_sensor.h" stamp="1568050342955" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;incubator/temp_hum_sensor.c&apos; to &apos;temp_sensor.c&apos;" description="Rename resource &apos;temp_hum_sensor.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="temp_hum_sensor.c" name="temp_sensor.c" stamp="1568050357800" updateReferences="true"/>
+</session>

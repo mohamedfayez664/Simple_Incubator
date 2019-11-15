@@ -1,0 +1,37 @@
+#include "switches.h"
+#include "interrupt.h"
+
+volatile uint8 set_temp_flag=0 , set_humidity_flag=0;
+volatile uint8 set_temp_pres=0 ,set_hum_pres=0 ;
+
+INTERRUPT_Config  myIN0_config={RISING_EDGE, NO_PULL};
+INTERRUPT_Config  myIN1_config={RISING_EDGE, NO_PULL};
+
+
+void switches_init()
+{
+	sei();
+
+	DDRD &=0xc0;  //input
+
+	INT0_Init(& myIN0_config);
+	INT0_CallBack(callBackin0);
+
+	INT1_Init(& myIN1_config);
+	INT1_CallBack(callBackin1);
+}
+
+
+void callBackin0(void){
+	if(set_temp_pres == 0)
+		set_temp_pres = 1;
+	else
+		set_temp_pres = 0;
+}
+
+void callBackin1(void){
+	if(set_hum_pres == 0)
+		set_hum_pres = 1;
+	else
+		set_hum_pres = 0;
+}

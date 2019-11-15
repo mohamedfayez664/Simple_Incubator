@@ -1,0 +1,31 @@
+#include "temp_hum_sensor.h"
+
+void adc_init(void)
+{
+	DDRA=0;
+	ADCSRA=0x87;
+	ADMUX=0x40;
+}
+///////////////////////////////////////////////////////
+uint16 adc_read(uint8 channel)
+{
+	uint16 x=0;
+	//DDRA&=~(1<<channel);
+	ADMUX  |= channel;
+	ADCSRA|=(1<<ADSC);
+	while((ADCSRA&(1<<ADIF))==0);
+	x=ADCL;
+	x|=(ADCH<<8);
+	return x;
+}
+uint8 temp_sensor_read(void)
+{
+	//uint8 x= (adc_read(1) * 500/1023);
+	return x; /// return local
+}
+////////////////////////////////////////////
+
+uint8 hum_sensor_read(void)
+{
+	return (adc_read (7));  ///// ......
+}

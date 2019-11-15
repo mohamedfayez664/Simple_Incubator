@@ -1,0 +1,26 @@
+
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include "declare_IO.h"
+#include "temp_hum_sensor.h"
+
+extern volatile uint16 actual_temp, actual_humidity;
+uint16 overflows=0;
+void Timer_Start_Count(void)
+{
+	TCNT2=0;
+	TCCR2=0x87;		//normal mode,1024 prescaler.  ///non pwm
+	TIMSK=(1<<TOIE2);
+	sei();
+}
+
+ISR(TIMER2_OVF_vect)
+{
+	overflows++;
+	if(overflows>=450)                    //15 seconds
+	{
+		overflows=0;
+		actual_temp=temp_sensor_read();
+		actual_humidity=hum_sensor_read();
+	}
+}
